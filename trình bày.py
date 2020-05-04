@@ -96,6 +96,7 @@ def click_mouse(value,buttons):
         elif (buttons[7].cget('text')=='  '):
             buttons[7].config(text= buttons[8].cget('text'))
             buttons[value].config(text = '  ')
+    win(buttons)     
 
 def add_Button(window,numbers):
     row=0
@@ -108,7 +109,13 @@ def add_Button(window,numbers):
         buttons.append(button) 
     for i in range(9):
         buttons[i].config(command = partial(click_mouse, i, buttons))
-    
+def win(buttons):
+    list=[]
+    for i in range(9):
+        list.append(buttons[i].cget('text'))
+    if (list==['  ', 1, 2,3,4,5,6,7,8]):
+        messagebox.showinfo('Thông báo','Chúc mừng bạn đã hoàn thành')
+        
 def start_game():
     window = Tk()
     numbers = [3, 1, 2, 6,'  ',8,7,5,4];
@@ -119,14 +126,6 @@ def start_game():
 #if __name__ == '__main__':
 start_game()
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
